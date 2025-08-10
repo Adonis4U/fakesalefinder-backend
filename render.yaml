@@ -18,15 +18,16 @@ services:
       - key: REDIS_URL
         fromService:
           name: fsf-redis
-          type: redis
-          property: connectionString
+          type: keyvalue
+          property: connectionString  # URL redis://... interno
 
-  - type: redis
+  # Redis (Render Key Value)
+  - type: keyvalue
     name: fsf-redis
-    plan: starter
-    ipAllowList: []
+    plan: starter            # puoi anche usare 'free' se disponibile nel tuo workspace
+    ipAllowList: []          # vuoto = solo rete interna di Render
 
 databases:
   - name: fsf-postgres
     databaseName: fakesalefinder
-    plan: basic
+    plan: basic-256mb        # piani validi: basic-256mb, basic-1gb, pro-8gb, ... (flessibili)
