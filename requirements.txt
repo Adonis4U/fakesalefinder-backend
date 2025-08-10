@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+pydantic
+httpx
+selectolax
+python-whois
+redis
+psycopg[binary]

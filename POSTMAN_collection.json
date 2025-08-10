@@ -1,0 +1,58 @@
+{
+  "info": {
+    "name": "FakeSaleFinder API",
+    "_postman_id": "fsf-coll-001",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{api_base}}/api/health",
+          "host": [
+            "{{api_base}}"
+          ],
+          "path": [
+            "api",
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Analyze",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"url\": \"https://example.com/product\"}"
+        },
+        "url": {
+          "raw": "{{api_base}}/api/analyze",
+          "host": [
+            "{{api_base}}"
+          ],
+          "path": [
+            "api",
+            "analyze"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "api_base",
+      "value": "https://api.adonisgagliardi.com"
+    }
+  ]
+}
