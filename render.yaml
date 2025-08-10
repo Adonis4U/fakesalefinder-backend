@@ -1,10 +1,11 @@
 services:
   - type: web
     name: fsf-api
-    env: docker
+    runtime: docker
     plan: starter
     autoDeploy: true
     healthCheckPath: /api/health
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: APP_ENV
         value: production
@@ -19,17 +20,13 @@ services:
           name: fsf-redis
           type: redis
           property: connectionString
-    dockerfilePath: ./Dockerfile
-    # Optional: if your backend lives in /backend in the repo, use a context path and dockerfile path accordingly
-    # buildCommand: ""  # not needed with Docker
-    # startCommand: ""  # defined in Dockerfile
+
+  - type: redis
+    name: fsf-redis
+    plan: starter
+    ipAllowList: []   # lascia vuoto per limitarlo alla rete interna di Render
 
 databases:
   - name: fsf-postgres
     databaseName: fakesalefinder
-    plan: starter
-
-redis:
-  - name: fsf-redis
-    ipAllowList: []  # keep empty to restrict to internal
     plan: starter
