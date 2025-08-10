@@ -24,9 +24,9 @@ services:
   - type: redis
     name: fsf-redis
     plan: starter
-    ipAllowList: []   # lascia vuoto per limitarlo alla rete interna di Render
+    ipAllowList: []
 
 databases:
   - name: fsf-postgres
     databaseName: fakesalefinder
-    plan: starter
+    plan: basic
